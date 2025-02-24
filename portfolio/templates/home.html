@@ -1,0 +1,414 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% load static %}
+<!-- Style of the plugin -->
+<link rel="stylesheet" href="{% static 'components/Font Awesome/css/font-awesome.min.css' %}">
+<link rel="stylesheet" href="{% static 'whatsapp-chat-support.css' %}">
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="stylesheet" href="{% static 'fonts.css' %}">
+<link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+
+<style>
+
+ .foto{
+  background-image: url("{{ imgHeader.image.url }}");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Fija la imagen al hacer scroll */
+  width: 100%;
+  height: 100vh;
+  clip-path: ellipse(100% 70% at 60% 30%);
+ }
+
+  .section_first {
+    width: 100%;
+    min-height: 600px; /* Ajusta la altura según tus necesidades */
+    overflow: hidden; /* Para asegurar que la imagen no sobresalga */
+  }
+  .section-dos{
+    height: 750px; /* Ajusta la altura según tus necesidades */
+    
+  }
+
+  .full-width-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Hace que la imagen cubra el área sin distorsionarse */
+  }
+
+  
+
+  .cristal{
+    width:80%;
+    background:rgba(255,255,255,0.30);
+    backdrop-filter:blur(10px);
+    border-radius:15px;
+    border:1px solid rgba(255,255,255,0.2);
+    box-shadow:0 8px 32px 0 rgba(31,38,135,0.37);
+    backdrop-filter:blur(15px);
+  }
+
+  .borde-arriba{
+    border-radius:10px 10px 0px 0px; 
+  }
+
+   /* Contenedor de la línea de tiempo */
+   .timeline-wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 20px 0;
+  }
+
+  .timeline-container {
+    display: flex;
+    gap: 20px;
+    animation: scroll 35s linear infinite;
+  }
+
+  .timeline-item {
+    flex: 0 0 auto;
+    width: 200px;
+  }
+
+  .timeline-img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  /* bordes*/
+  .border-redondo{
+    border-radius: 20px;
+  }
+  .border-redondo-derecho{
+    border-radius: 0px 20px 20px 0px;
+    /*box-shadow: 3px 8px 20px 0 rgba(255, 220, 37, 0.2);*/
+  }
+
+  /* Animación para desplazamiento continuo */
+  @keyframes scroll {
+    0% {
+      transform: translateX(100%);
+    }
+    50% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+
+  .fondo-cards-sup {
+    background: #212529;
+    padding-top: 50px;
+    /*clip-path: ellipse(80% 70% at 30% 90%);*/
+    clip-path: ellipse(90% 70% at 20% 70%);
+    
+  }
+
+  .fondo-cards {
+    background: #212529;
+    padding-top: 50px;
+    /*clip-path: ellipse(90% 80% at 60% 20%);*/
+    /*clip-path: ellipse(100% 90% at 45% 10%);*/
+    /*clip-path: ellipse(100% 80% at 50% 20%);*/
+    clip-path: ellipse(100% 70% at 60% 30%);
+  }
+  .fondo-cards-sup-footer {
+    background: #212529;
+    padding-top: 50px;
+    clip-path: ellipse(100% 80% at 50% 80%);
+  }
+
+  
+</style>
+
+<!-- Hero Section -->
+
+<div class="section section_first foto fondo-cards-principal">
+  <img src="{{ imgHeader.image.url }}" class="full-width-img foto d-none" alt="Slide {{ forloop.counter }}">  
+</div>
+
+
+<section class="section section-lg  bg-img-custom section-dos" id="about" >
+  <div class="container container-custom-left">
+    <div class="row justify-content-between row-60 row-md-30 flex-wrap-reverse flex-lg-wrap">
+      <div class="col-lg-7">
+        <div class="row row-41">
+          <div class="col-xs-4 maw-29">
+            <div class="row row-41">
+              <div class="col-12 ">
+                <div class="box-custom-3 wow fadeInLeft" data-wow-delay=".7s"><img class="mt-112 border-redondo-derecho" src="{{ imgSpot.imagen_dos.url }}" alt="" width="226" height="261"/>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="box-custom-3 wow fadeInLeft" data-wow-delay=".8s"><img class="border-redondo-derecho" src="{{ imgSpot.imagen_tres.url }}" alt="" width="226" height="564"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-8">
+            <div class="row row-41">
+              <div class="col-12">
+                <div class="box-custom-3 wow fadeInLeft " data-wow-delay=".5s"><img src="{{ imgSpot.image.url }}" class="border-redondo" alt="" width="560" height="564"/>
+                  <div class="box-custom-3-container">
+                    <div class="box-custom-3-wrap">
+                      <div class="box-custom-3-item">
+                        <p class="box-custom-3-name">{{txtSpot.title}}</p>
+                        <p class="box-custom-3-position">{{txtSpot.subtitle}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-7">
+                <div class="box-custom-3 box-custom-3-border wow fadeInLeft" data-wow-delay=".6s">
+                  <div class="box-custom-3-border-dashed"></div>
+                  <div class="box-custom-3-border-angel"></div><img class="border-redondo" src="{{ imgSpot.imagen_cuatro.url }}" alt="" width="257" height="261"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 col-xxl-4">
+        <div class="box-custom-2">
+          <h2 class="wow fadeInRight" data-wow-delay=".5s">{{txtSpot.title_boton}}</h2>
+          <p class="wow fadeInRight" data-wow-delay=".6s">{{txtSpot.subtitulo_segunda_seccion}}</p>
+          <ul class="list index-list list-classic-wrap">
+            <li class="unit unit-spacing-lg align-items-start list-classic flex-column flex-xs-row wow fadeInRight" data-wow-delay=".7s">
+              {% comment %} unit-left list-index-counter {% endcomment %}
+              <div class="unit-left list-index-counter">
+                <div class="list-classic-rectangle"></div>
+                
+              </div>
+              <div class="unit-body">
+                <h4>{{txtSpot.titulo_uno}}</h4>
+                <p>{{txtSpot.subtitulo_uno}}</p>
+              </div>
+            </li>
+            <li class="unit unit-spacing-lg align-items-start list-classic flex-column flex-xs-row wow fadeInRight" data-wow-delay=".8s">
+              <div class="unit-left list-index-counter">
+                <div class="list-classic-rectangle border "></div>
+                
+              </div>
+              <div class="unit-body">
+                <h4>{{txtSpot.titulo_dos}}</h4>
+                <p>{{txtSpot.subtitulo_dos}}</p>
+              </div>
+            </li>
+            <li class="unit unit-spacing-lg align-items-start list-classic flex-column flex-xs-row wow fadeInRight" data-wow-delay=".9s">
+              <div class="unit-left list-index-counter">
+                <div class="list-classic-rectangle "></div>
+                
+              </div>
+              <div class="unit-body">
+                <h4>{{txtSpot.titulo_tres}}</h4>
+                <p>{{txtSpot.subtitulo_tres}}</p>
+              </div>
+            </li>
+          </ul><a class="button button-primary button-shadow wow fadeInRight d-none" data-wow-delay="1s" href="#">Get a Quote</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="fondo-cards-sup " >
+</div>
+
+<section class="section   fondo-cards " id="portfolio">
+  
+  <div class="container ">
+    <div class="row row-30">
+      <div class="col-xl-6 col-md-6 wow fadeInLeft" data-wow-delay=".2s">
+        <h2 class="text-white">{{secc_uno.titulo_uno}}</h2>
+      </div>
+      <div class="col-xl-6 col-md-6 wow fadeInRight" data-wow-delay=".2s">
+        <h4 class="text-white">{{secc_uno.subtitulo_uno}}</h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="container container-custom-right d-flex">
+    <div class="owl-carousel owl-theme bg-dark">
+      {% for project in projects %}
+      <div class="card bg-dark">
+        <div class="face front">
+            <img src="{{project.image.url }}" alt="">
+            <h3 style="font-size:20px;">{{ project.title|upper }}</h3>
+        </div>
+        <div class="face back">
+            <h3 class="text-white" style="font-size:20px;">{{ project.title|upper }}</h3>
+            <p class="text-white">{{ project.description }}</p>
+            <div class="link">
+              <a href="#"></a>
+            </div>          
+        </div>
+      </div>
+      {% endfor %} 
+    </div>
+  </div>
+
+</section>
+
+<section class="section margintop  marginbottom" id="video">
+
+  <div class="container-fluid row text-center d-flex">
+   
+    {% if secc_dos %}
+    <h2>{{secc_dos.titulo_dos}}</h2>
+    {% endif %}
+    <hr>
+    <div class="col d-flex justify-content-center video-container">
+      {% if video %}
+        {% if video.video_file %}
+          <!-- Reproducir video MP4 -->
+          <video width="560" height="315" controls>
+            <source src="{{ video.video_file.url }}" type="video/mp4">
+            Tu navegador no soporta el reproductor de video.
+          </video>
+        {% elif video.embed_url %}
+          <!-- Reproducir video de YouTube -->
+          <iframe width="560" height="315" 
+                  src="{{ video.embed_url }}" 
+                  title="YouTube video player" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen>
+          </iframe>
+        {% endif %}
+             
+      {% else %}
+        <p>No hay video disponible.</p>
+      {% endif %}
+    </div>
+    <div class="col ">
+      <p class="marginbottom"></p>
+      <h4>{{secc_dos.subtitulo_dos}}</h4>
+      <p></p>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Button Whatsapp Structure -->
+<div class="whatsapp_chat_support wcs_fixed_right" id="button-w">
+  <div class="wcs_button_label text-dark">
+          Contáctanos
+      </div>  
+  <div class="wcs_button wcs_button_circle">
+      <span class="fa fa-whatsapp "></span>
+  </div>  
+
+  <div class="wcs_popup">
+      <div class="wcs_popup_close">
+          <span class="fa fa-close"></span>
+      </div>
+      <div class="wcs_popup_header">
+          <span class="fa fa-whatsapp"></span>
+          <strong>OSHER</strong>
+          
+          <div class="wcs_popup_header_description">¿Necesitas ayuda? Chatea con nosotros en Whatsapp</div>
+
+      </div>  
+      <div class="wcs_popup_input" 
+          data-number="524779198052"
+          data-availability='{ "monday":"07:00-22:30", "tuesday":"07:00-22:30", "wednesday":"07:7030-22:30", "thursday":"07:00-22:30", "friday":"07:00-22:30", "saturday":"09:00-18:30", "sunday":"09:00-22:30" }'>
+          <input type="text" placeholder="Escribir pregunta!" />
+          <i class="fa fa-play"></i>
+      </div>
+      <div class="wcs_popup_avatar">
+          <img src="https://img.freepik.com/vector-gratis/plantilla-logotipo-galletas-diseno-plano_23-2150053040.jpg" alt="">
+      </div>
+  </div>
+</div>
+
+<footer class="section footer-classic bg-gray-900 novi-bg novi-bg-img bg-dark fondo-cards-sup-footer" >
+  <div class="container">
+    <div class="row row-30 justify-content-between">
+      <div class="col-xl-3 col-lg-3 col-sm-6">
+        <p class="footer-classic-title">Nuestra Dirección</p>
+        <ul class="footer-classic-list">
+          <li>Villa Carolina #147, Candora Urbanidad, León Gto.</li>
+          <li><a class="" href="{% url 'politicas' %}">Aviso de Privacidad</a></li>
+          <li><a class="" href="{% url 'cookies' %}">Politica Cookies</a></li>
+        </ul>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-sm-6">
+        <p class="footer-classic-title">Redes Sociales</p>
+        <ul class="footer-classic-list">
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-sm-6">
+        <p class="footer-classic-title">Télefono</p>
+        <ul class="footer-classic-list">
+          <li><a href="tel:#">+52 4779198052</a></li>
+        </ul>
+      </div>
+      <div class="col-xl-2 col-lg-3 col-sm-6">
+        <p class="footer-classic-title">Email</p>
+        <ul class="footer-classic-list">
+          <li><a href="mailto:#">oswaldo.herrera.mx@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-classic-logo-wrap"><a class="brand" href="#"><img src="images/logo-default-189x35.png" alt="logotipo" width="189" height="35"/></a>
+    </div>
+    <p class="rights"><span>&copy;&nbsp; </span><span class="copyright-year"></span><span>&nbsp;</span><span>OSHER</span><span>. All Rights Reserved. Design by OSHER</span></p>
+  </div>
+</footer>
+
+<!-- Incluye los scripts whatsapp-->
+<script src="{% static 'components/jQuery/jquery-1.11.3.min.js' %}"></script>
+<script src="{% static 'components/moment/moment.min.js' %}"></script>
+<script src="{% static 'components/moment/moment-timezone-with-data.min.js' %}"></script>
+<script src="{% static 'whatsapp-chat-support.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+ $('#button-w').whatsappChatSupport({
+      defaultMsg : '',
+  });
+</script>
+
+<script>
+  $(document).ready(function(){
+      $(".owl-carousel").owlCarousel({
+          loop: true,
+          margin: 20,
+          nav: true, /* Activa las flechas */
+          dots: false, /* Desactiva los puntos */
+          //navText: ["<span class='owl-prev'>&#10094;</span>", "<span class='owl-next'>&#10095;</span>"],
+          navText: ["<span class='owl-prev text-dark'>&#10094;</span>", "<span class='owl-next text-dark'>&#10095;</span>"],
+          responsive: {
+              0: { items: 1 },
+              768: { items: 2 },
+              1024: { items: 3 } /* Muestra 3 tarjetas en pantallas grandes */
+          }
+      });
+  });
+  </script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-P1Evxj3cP5PiBTfzk5R2e4Paq2C07fTKxtJFtSk7fjSAxXaT2z7QpD96zJe7bBtK" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9ZxA4E/9g3h1BfZA9e6p5gSx0e5Ht2jvZGid3F5Dti3HgkJQj6V6jF" crossorigin="anonymous"></script>
+<script src="{% static 'core.min.js' %}" ></script>
+<script src="{% static 'script.js' %}"></script>
+
+{% endblock %}
