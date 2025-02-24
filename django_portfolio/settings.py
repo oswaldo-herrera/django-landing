@@ -14,6 +14,12 @@ from pathlib import Path
 import dj_database_url
 import os
 #from dotenv import load_dotenv # type: ignore
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+
+
 
 #load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -44,6 +50,7 @@ INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
     "blog",
     "portfolio",
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -142,6 +149,26 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
+
+cloudinary.config(
+    cloud_name = "de7x1bauj",
+    api_key = "363264721472121",
+    api_secret = "Y0e3JVDkceMhjN9c5fIca1bUY7g"
+)
+
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": "de7x1bauj",
+    "API_KEY": "363264721472121",
+    "API_SECRET": "Y0e3JVDkceMhjN9c5fIca1bUY7g",
+}
+
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+# Upload an image
+upload_result = cloudinary.uploader.upload("https://res.cloudinary.com/demo/image/upload/getting-started/shoes.jpg",public_id="shoes")
+print(upload_result["secure_url"])
+
+
+
 
 STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
