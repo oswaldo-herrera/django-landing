@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
     "blog",
     "portfolio",
+    'cloudinary_storage',
     'cloudinary',
 ]
 
