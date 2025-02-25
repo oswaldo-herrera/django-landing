@@ -139,6 +139,30 @@
     margin-bottom:100px;
   }
 
+  @media (max-width: 768px) {
+    
+      .foto {
+          height: 50vh; /* Reduce el tamaño del header en móviles */
+          clip-path: none;
+      }
+      .section-dos {
+          height: auto; /* Evita altura fija en móviles */
+          padding: 20px;
+      }
+      .timeline-container {
+          flex-direction: column;
+          overflow-x: scroll; /* Permite desplazamiento en pantallas pequeñas */
+      }
+      .timeline-item {
+          width: 100%;
+          height: auto;
+      }
+      .box-custom-3 img {
+          width: 100%; /* Asegura que las imágenes sean responsivas */
+          height: auto;
+      }
+  }
+
 
 
  
