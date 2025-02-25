@@ -35,6 +35,11 @@ button::-moz-focus-inner {
 	outline: none;
 }
 
+.section {
+	min-height: 100vh; /* Ajusta según necesidad */
+	padding: 20px;
+  }
+
 blockquote {
 	padding: 0;
 	margin: 0;
@@ -272,6 +277,9 @@ p.pretitle {
 	.subtitle {
 		font-size: 22px;
 	}
+	.margin-top{
+		margin-top:800px;
+	  }
 }
 
 code {
